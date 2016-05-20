@@ -46,8 +46,6 @@ const char *deny[] = {
 	"/tmp/hidden_a",
 	"/tmp/hidden_b",
 	"/tmp/hiddendir",
-	"/home/gnull/code/edu/ld_preload/a",
-	"/home/gnull/code/edu/ld_preload/existent",
 	NULL
 };
 
