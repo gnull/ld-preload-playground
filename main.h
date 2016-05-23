@@ -41,6 +41,3 @@
 
 /* List of file paths to be hidden */
 extern const char *deny[];
-
-/* Directory to store temporary files to */
-extern const char *tmpdir;
