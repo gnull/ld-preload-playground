@@ -45,7 +45,6 @@ int access_file(const char *filename)
 	char *dir = get_current_dir_name();
 
 	resolved = join_paths(dir, filename);
-	dbg("join_paths(%s, %s) = %s\n", dir, filename, resolved);
 	if (!resolved) {
 		free(dir);
 		return 1;
