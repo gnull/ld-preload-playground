@@ -35,12 +35,13 @@ void __attribute__((__constructor__)) overlay_init(void)
 
 	strncpy(buff, env, 999);
 
-	while (token = strtok(buff, ":")) {
+	token = strtok(buff, ":");
+	do {
 		dbg("file '%s' will be hidden\n", token);
 		deny_size++;
 		deny = realloc(deny, deny_size * sizeof(char *));
 
 		deny[deny_size - 2] = copy_string(token);
 		deny[deny_size - 1] = NULL;
-	}
+	} while (token = strtok(NULL, ":"));
 }
