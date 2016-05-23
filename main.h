@@ -40,4 +40,4 @@
 			      " :" UNDERLINE fmt RESET, __VA_ARGS__)
 
 /* List of file paths to be hidden */
-extern const char *deny[];
+extern const char **deny;
