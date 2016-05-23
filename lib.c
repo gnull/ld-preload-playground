@@ -14,8 +14,10 @@ static char *join_paths(const char *dir, const char *file)
 	} else {
 		ret = malloc(lend + lenf + 2);
 		strcpy(ret, dir);
-		strcat(ret, "/");
-		strcat(ret, file);
+		if (strcmp(file, ".")) {
+			strcat(ret, "/");
+			strcat(ret, file);
+		}
 	}
 
 	return ret;
