@@ -1,16 +1,11 @@
-lib = overlay.so
+lib = liboverlay.so
 
-tests_c = $(wildcard test_*.c)
-tests = $(patsubst %.c, %, $(tests_c))
+CFLAGS += -shared -fPIC -fPIE -ldl
 
-test: $(tests) $(lib)
-	@for t in $(tests); do \
-		echo "=== $$t ==="; \
-		env LD_PRELOAD=$(lib) ./$$t; \
-	done;
+LDFLAGS += -shared
 
-$(lib): overlay.c
-	gcc $(CFLAGS) -shared -fPIC -fPIE -ldl -o $@ $^
+$(lib): main.o lib.o open.o
+	gcc $(CFLAGS) -o $@ $^
 
 clean:
 	@rm -rf $(tests) $(lib)
