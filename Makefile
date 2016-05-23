@@ -5,7 +5,7 @@ CFLAGS += -shared -fPIC -fPIE -ldl
 LDFLAGS += -shared
 
 $(lib): main.o lib.o open.o dir.o
-	gcc $(CFLAGS) -o $@ $^
+	ld $(LDFLAGS) -o $@ $^
 
 clean:
 	@rm -rf $(tests) $(lib)
